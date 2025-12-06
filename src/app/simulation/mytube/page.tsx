@@ -67,23 +67,124 @@ export default function MyTubePage() {
         <div className="flex-1">
           {/* 비디오 플레이어 */}
           <div className="relative bg-black rounded-xl overflow-hidden aspect-video">
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-              {/* 썸네일/플레이 버튼 */}
-              <div className="text-center">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg"
-                >
-                  <Play className="w-10 h-10 text-white ml-1" />
-                </motion.button>
-                <p className="text-white/80 mt-4 text-sm">
+            {/* 마인크래프트 중세 성 일러스트 배경 */}
+            <div className="absolute inset-0">
+              {/* 하늘 배경 */}
+              <div className="absolute inset-0 bg-gradient-to-b from-sky-400 via-sky-300 to-sky-200" />
+
+              {/* 구름 */}
+              <div className="absolute top-4 left-10 w-20 h-8 bg-white rounded-full opacity-90" />
+              <div className="absolute top-6 left-16 w-16 h-6 bg-white rounded-full opacity-90" />
+              <div className="absolute top-8 right-20 w-24 h-8 bg-white rounded-full opacity-80" />
+              <div className="absolute top-10 right-28 w-16 h-6 bg-white rounded-full opacity-80" />
+
+              {/* 산/언덕 배경 */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-green-700 to-green-600" />
+
+              {/* 마인크래프트 스타일 성 */}
+              <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                {/* 성 본체 */}
+                <div className="flex items-end gap-1">
+                  {/* 왼쪽 탑 */}
+                  <div className="flex flex-col items-center">
+                    <div className="w-4 h-4 bg-gray-700 border border-gray-800" /> {/* 지붕 */}
+                    <div className="w-8 h-16 bg-stone-400 border-2 border-stone-500 flex flex-col gap-1 p-1">
+                      <div className="w-2 h-2 bg-stone-600 mx-auto" />
+                      <div className="w-2 h-2 bg-stone-600 mx-auto" />
+                      <div className="w-2 h-2 bg-stone-600 mx-auto" />
+                    </div>
+                  </div>
+
+                  {/* 왼쪽 성벽 */}
+                  <div className="w-12 h-10 bg-stone-400 border-2 border-stone-500 flex items-end justify-center pb-1">
+                    <div className="w-4 h-6 bg-amber-900 rounded-t-lg" /> {/* 문 */}
+                  </div>
+
+                  {/* 중앙 메인 탑 */}
+                  <div className="flex flex-col items-center -mb-2">
+                    <div className="w-6 h-6 bg-red-700 border border-red-800 transform rotate-45 -mb-3" /> {/* 지붕 */}
+                    <div className="w-12 h-24 bg-stone-400 border-2 border-stone-500 flex flex-col items-center pt-2 gap-1">
+                      <div className="w-6 h-3 bg-stone-600 flex gap-0.5">
+                        <div className="flex-1 bg-sky-300" />
+                        <div className="flex-1 bg-sky-300" />
+                      </div>
+                      <div className="w-6 h-3 bg-stone-600 flex gap-0.5">
+                        <div className="flex-1 bg-sky-300" />
+                        <div className="flex-1 bg-sky-300" />
+                      </div>
+                      <div className="w-5 h-8 bg-amber-800 rounded-t-lg mt-1" /> {/* 큰 문 */}
+                    </div>
+                  </div>
+
+                  {/* 오른쪽 성벽 */}
+                  <div className="w-12 h-10 bg-stone-400 border-2 border-stone-500 flex items-end justify-center pb-1">
+                    <div className="w-4 h-6 bg-amber-900 rounded-t-lg" /> {/* 문 */}
+                  </div>
+
+                  {/* 오른쪽 탑 */}
+                  <div className="flex flex-col items-center">
+                    <div className="w-4 h-4 bg-gray-700 border border-gray-800" /> {/* 지붕 */}
+                    <div className="w-8 h-16 bg-stone-400 border-2 border-stone-500 flex flex-col gap-1 p-1">
+                      <div className="w-2 h-2 bg-stone-600 mx-auto" />
+                      <div className="w-2 h-2 bg-stone-600 mx-auto" />
+                      <div className="w-2 h-2 bg-stone-600 mx-auto" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 성벽 하단 */}
+                <div className="w-full h-4 bg-stone-500 border-x-2 border-b-2 border-stone-600" />
+              </div>
+
+              {/* 마인크래프트 블록 스타일 나무들 */}
+              <div className="absolute bottom-[15%] left-[10%]">
+                <div className="w-6 h-6 bg-green-600 border border-green-700" />
+                <div className="w-2 h-4 bg-amber-700 mx-auto" />
+              </div>
+              <div className="absolute bottom-[18%] left-[5%]">
+                <div className="w-5 h-5 bg-green-600 border border-green-700" />
+                <div className="w-1.5 h-3 bg-amber-700 mx-auto" />
+              </div>
+              <div className="absolute bottom-[15%] right-[8%]">
+                <div className="w-6 h-6 bg-green-600 border border-green-700" />
+                <div className="w-2 h-4 bg-amber-700 mx-auto" />
+              </div>
+              <div className="absolute bottom-[17%] right-[15%]">
+                <div className="w-5 h-5 bg-green-600 border border-green-700" />
+                <div className="w-1.5 h-3 bg-amber-700 mx-auto" />
+              </div>
+
+              {/* 잔디 블록 바닥 */}
+              <div className="absolute bottom-0 left-0 right-0 h-[15%] flex">
+                {Array.from({ length: 20 }).map((_, i) => (
+                  <div key={i} className="flex-1 bg-green-500 border-t-4 border-green-400" />
+                ))}
+              </div>
+            </div>
+
+            {/* 플레이 버튼 오버레이 */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center shadow-2xl backdrop-blur-sm"
+                aria-label="동영상 재생"
+              >
+                <Play className="w-10 h-10 text-white ml-1" />
+              </motion.button>
+            </div>
+
+            {/* 영상 정보 오버레이 */}
+            <div className="absolute bottom-8 left-4 right-4">
+              <div className="bg-black/60 backdrop-blur-sm rounded-lg px-3 py-2 inline-block">
+                <p className="text-white text-sm font-medium">
                   🏰 마인크래프트 중세 성 건축 미리보기
                 </p>
               </div>
             </div>
+
             {/* 진행바 */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700">
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700/80">
               <div className="h-full w-1/3 bg-red-600" />
             </div>
           </div>

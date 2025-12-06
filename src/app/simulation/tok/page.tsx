@@ -283,12 +283,118 @@ export default function TokPage() {
             </div>
           </>
         ) : (
-          // 채팅방 선택 안 됨
-          <div className="flex-1 flex items-center justify-center">
-            <div className="text-center">
-              <span className="text-6xl">💬</span>
-              <p className="text-gray-500 mt-4">채팅방을 선택해주세요</p>
+          // 채팅방 선택 안 됨 - 풍성한 대기 화면
+          <div className="flex-1 flex flex-col items-center justify-center bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 relative overflow-hidden">
+            {/* 배경 장식 */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* 떠다니는 이모지들 */}
+              <motion.div
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[10%] left-[15%] text-4xl opacity-30"
+              >
+                💬
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute top-[20%] right-[20%] text-3xl opacity-30"
+              >
+                😊
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -25, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-[30%] left-[10%] text-3xl opacity-30"
+              >
+                🎉
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -18, 0] }}
+                transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                className="absolute bottom-[25%] right-[15%] text-4xl opacity-30"
+              >
+                ✨
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -22, 0] }}
+                transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
+                className="absolute top-[40%] left-[25%] text-3xl opacity-20"
+              >
+                💛
+              </motion.div>
+
+              {/* 배경 원형 장식 */}
+              <div className="absolute top-[5%] right-[5%] w-32 h-32 bg-yellow-200 rounded-full opacity-20 blur-2xl" />
+              <div className="absolute bottom-[10%] left-[5%] w-40 h-40 bg-orange-200 rounded-full opacity-20 blur-2xl" />
             </div>
+
+            {/* 메인 컨텐츠 */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-center z-10"
+            >
+              {/* 메신저 일러스트 */}
+              <div className="relative mb-6">
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-3xl mx-auto flex items-center justify-center shadow-2xl"
+                >
+                  <span className="text-6xl">💬</span>
+                </motion.div>
+                {/* 알림 뱃지 */}
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="absolute -top-2 -right-2 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg"
+                >
+                  !
+                </motion.div>
+              </div>
+
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                친구들과 대화해요
+              </h2>
+              <p className="text-gray-500 mb-6 max-w-xs">
+                왼쪽에서 채팅방을 선택하면<br />
+                대화를 시작할 수 있어요
+              </p>
+
+              {/* 가디언즈 렌즈 안내 */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-yellow-200 max-w-xs mx-auto"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-gray-800">
+                      가디언즈 렌즈 활성화
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      위험한 대화를 감지하면 알려줄게요
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 채팅방 미리보기 힌트 */}
+              <motion.div
+                animate={{ x: [-5, 5, -5] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="mt-8 text-gray-400 flex items-center gap-2 justify-center"
+              >
+                <ChevronLeft className="w-5 h-5" />
+                <span className="text-sm">채팅방을 선택해주세요</span>
+              </motion.div>
+            </motion.div>
           </div>
         )}
       </div>

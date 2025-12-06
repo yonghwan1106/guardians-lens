@@ -119,16 +119,161 @@ export default function NewsHubPage() {
               </div>
             </div>
 
-            {/* 기사 썸네일 */}
-            <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <span className="text-6xl">
-                  {selectedArticle.category === 'IT/과학' && '🤖'}
-                  {selectedArticle.category === '환경' && '🌍'}
-                  {selectedArticle.category === '사회' && '👥'}
-                </span>
-                <p className="mt-2 text-gray-500 text-sm">{selectedArticle.category} 관련 이미지</p>
-              </div>
+            {/* 기사 썸네일 - 카테고리별 일러스트 */}
+            <div className="relative mb-6 rounded-xl overflow-hidden aspect-video">
+              {/* IT/과학 - AI 저작권 관련 일러스트 */}
+              {selectedArticle.category === 'IT/과학' && (
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 via-purple-50 to-blue-100">
+                  {/* 배경 패턴 */}
+                  <div className="absolute inset-0 opacity-10">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                      <div key={i} className="absolute text-6xl text-indigo-500" style={{ top: `${(i * 15) % 80}%`, left: `${(i * 20) % 90}%` }}>
+                        {'</>'}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* 중앙 AI 로봇 */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative">
+                      {/* 로봇 머리 */}
+                      <div className="w-24 h-20 bg-gradient-to-b from-slate-300 to-slate-400 rounded-2xl border-4 border-slate-500 relative mx-auto">
+                        {/* 눈 */}
+                        <div className="absolute top-4 left-4 w-5 h-5 bg-cyan-400 rounded-full animate-pulse" />
+                        <div className="absolute top-4 right-4 w-5 h-5 bg-cyan-400 rounded-full animate-pulse" />
+                        {/* 입 */}
+                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-10 h-2 bg-slate-600 rounded-full" />
+                        {/* 안테나 */}
+                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-2 h-4 bg-slate-500 rounded-full" />
+                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-500 rounded-full animate-ping" />
+                      </div>
+                      {/* 로봇 몸통 */}
+                      <div className="w-20 h-16 bg-gradient-to-b from-slate-400 to-slate-500 rounded-xl border-4 border-slate-600 mx-auto -mt-2 flex items-center justify-center">
+                        <div className="w-8 h-8 border-4 border-cyan-400 rounded-full" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 떠다니는 아이콘들 */}
+                  <div className="absolute top-8 left-8 p-3 bg-white rounded-xl shadow-lg">
+                    <span className="text-2xl">📝</span>
+                  </div>
+                  <div className="absolute top-12 right-12 p-3 bg-white rounded-xl shadow-lg">
+                    <span className="text-2xl">⚖️</span>
+                  </div>
+                  <div className="absolute bottom-12 left-16 p-3 bg-white rounded-xl shadow-lg">
+                    <span className="text-2xl">🔒</span>
+                  </div>
+                  <div className="absolute bottom-8 right-8 p-3 bg-white rounded-xl shadow-lg">
+                    <span className="text-2xl">💡</span>
+                  </div>
+                </div>
+              )}
+
+              {/* 환경 - 북극 빙하 관련 일러스트 */}
+              {selectedArticle.category === '환경' && (
+                <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-blue-400">
+                  {/* 태양 */}
+                  <div className="absolute top-6 right-10 w-16 h-16 bg-yellow-300 rounded-full shadow-lg">
+                    <div className="absolute inset-2 bg-yellow-200 rounded-full" />
+                  </div>
+
+                  {/* 구름 */}
+                  <div className="absolute top-8 left-10">
+                    <div className="w-16 h-8 bg-white rounded-full" />
+                    <div className="absolute top-2 -left-4 w-10 h-6 bg-white rounded-full" />
+                    <div className="absolute top-2 left-10 w-12 h-7 bg-white rounded-full" />
+                  </div>
+
+                  {/* 빙하/빙산들 */}
+                  <div className="absolute bottom-0 left-0 right-0">
+                    {/* 바다 */}
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-600 to-blue-400" />
+
+                    {/* 큰 빙산 */}
+                    <div className="absolute bottom-16 left-1/4">
+                      <div className="w-0 h-0 border-l-[40px] border-r-[40px] border-b-[80px] border-l-transparent border-r-transparent border-b-white/90" />
+                      <div className="absolute -bottom-8 -left-4 w-24 h-8 bg-blue-200/60 rounded-b-lg" />
+                    </div>
+
+                    {/* 중간 빙산 */}
+                    <div className="absolute bottom-12 right-1/4">
+                      <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[60px] border-l-transparent border-r-transparent border-b-white/80" />
+                      <div className="absolute -bottom-6 -left-2 w-16 h-6 bg-blue-200/60 rounded-b-lg" />
+                    </div>
+
+                    {/* 작은 빙산들 */}
+                    <div className="absolute bottom-8 left-10 w-12 h-8 bg-white/70 rounded-t-lg" />
+                    <div className="absolute bottom-10 right-16 w-10 h-6 bg-white/70 rounded-t-lg" />
+
+                    {/* 북극곰 */}
+                    <div className="absolute bottom-20 right-1/3">
+                      <div className="w-8 h-6 bg-white rounded-full" /> {/* 몸 */}
+                      <div className="absolute -top-3 left-0 w-4 h-4 bg-white rounded-full" /> {/* 머리 */}
+                      <div className="absolute -top-2 left-0.5 w-1 h-1 bg-black rounded-full" /> {/* 눈 */}
+                    </div>
+                  </div>
+
+                  {/* 경고 오버레이 */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-500/20 backdrop-blur-sm rounded-2xl px-6 py-4 border-2 border-red-400">
+                    <p className="text-red-700 font-bold text-lg">🌡️ +1.5°C</p>
+                    <p className="text-red-600 text-sm">지구 평균 기온 상승</p>
+                  </div>
+                </div>
+              )}
+
+              {/* 사회 - 온라인 안전 교육 관련 일러스트 */}
+              {selectedArticle.category === '사회' && (
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-100">
+                  {/* 교실 배경 */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-amber-100" />
+
+                  {/* 칠판 */}
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-green-700 rounded-lg border-8 border-amber-800 shadow-lg">
+                    <div className="p-4 text-white text-center">
+                      <p className="text-lg font-bold">디지털 시민 교육</p>
+                      <div className="flex justify-center gap-4 mt-2">
+                        <span className="text-2xl">🛡️</span>
+                        <span className="text-2xl">📱</span>
+                        <span className="text-2xl">🤝</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 학생들 */}
+                  <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-8">
+                    {/* 학생 1 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-10 h-10 bg-yellow-300 rounded-full" /> {/* 머리 */}
+                      <div className="w-12 h-14 bg-blue-500 rounded-t-lg -mt-2" /> {/* 몸 */}
+                      <div className="w-14 h-8 bg-amber-200 rounded-t-lg -mt-1" /> {/* 책상 */}
+                      <div className="absolute bottom-16 w-8 h-6 bg-gray-300 rounded" /> {/* 태블릿 */}
+                    </div>
+                    {/* 학생 2 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-10 h-10 bg-amber-600 rounded-full" /> {/* 머리 */}
+                      <div className="w-12 h-14 bg-pink-500 rounded-t-lg -mt-2" /> {/* 몸 */}
+                      <div className="w-14 h-8 bg-amber-200 rounded-t-lg -mt-1" /> {/* 책상 */}
+                      <div className="absolute bottom-16 w-8 h-6 bg-gray-300 rounded" /> {/* 태블릿 */}
+                    </div>
+                    {/* 학생 3 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-10 h-10 bg-orange-300 rounded-full" /> {/* 머리 */}
+                      <div className="w-12 h-14 bg-green-500 rounded-t-lg -mt-2" /> {/* 몸 */}
+                      <div className="w-14 h-8 bg-amber-200 rounded-t-lg -mt-1" /> {/* 책상 */}
+                      <div className="absolute bottom-16 w-8 h-6 bg-gray-300 rounded" /> {/* 태블릿 */}
+                    </div>
+                  </div>
+
+                  {/* 떠다니는 아이콘 */}
+                  <div className="absolute top-16 right-8 p-2 bg-white rounded-full shadow-md animate-bounce">
+                    <span className="text-xl">💻</span>
+                  </div>
+                  <div className="absolute top-24 left-8 p-2 bg-white rounded-full shadow-md animate-bounce" style={{ animationDelay: '0.5s' }}>
+                    <span className="text-xl">🔐</span>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* 기사 본문 - 어려운 단어 설명 포함 */}
