@@ -1,0 +1,160 @@
+import { MockComment } from '@/types';
+
+export const YOUTUBE_COMMENTS_MOCK: MockComment[] = [
+  {
+    id: 'cm_001',
+    author: '게임러버_민수',
+    content: '와 이 영상 진짜 잘만들었다! 나도 저렇게 건축해보고싶어요 ㅎㅎ',
+    timestamp: '1시간 전',
+    likes: 42,
+    profileImage: '/avatars/user1.png',
+    riskLevel: 'SAFE',
+  },
+  {
+    id: 'cm_002',
+    author: '프로게이머지망생',
+    content: '야 너 목소리 왜이렇게 찐따같아 ㅋㅋ 그냥 방송 접어라',
+    timestamp: '45분 전',
+    likes: 3,
+    profileImage: '/avatars/user2.png',
+    riskLevel: 'DANGER',
+    riskCategory: 'BULLYING',
+    detectedKeywords: ['찐따', '접어라'],
+    aiExplanation: '상대방의 목소리를 비하하고 방송을 그만두라고 강요하는 것은 사이버 괴롭힘이에요. 이런 말은 상대방의 마음을 많이 아프게 할 수 있어요.',
+    hiddenContent: '야 너 목소리 왜이렇게 [비하 발언] ㅋㅋ 그냥 방송 [부정적 명령]',
+  },
+  {
+    id: 'cm_003',
+    author: 'FreeRobuxGiver',
+    content: '지금 제 채널 오시면 로벅스 10000개 무료로 드립니다! 비번만 알려주면 됨 http://bit.ly/freerbx',
+    timestamp: '30분 전',
+    likes: 0,
+    profileImage: '/avatars/bot.png',
+    riskLevel: 'DANGER',
+    riskCategory: 'SCAM',
+    detectedKeywords: ['무료', '비번', 'http'],
+    aiExplanation: '공짜로 게임 머니를 준다고 하면서 비밀번호를 물어보는 것은 피싱 사기예요. 이런 링크는 절대 클릭하면 안 되고, 비밀번호는 누구에게도 알려주면 안 돼요!',
+    hiddenContent: '[위험한 사이트 링크가 포함된 댓글입니다]',
+  },
+  {
+    id: 'cm_004',
+    author: '친절한형아',
+    content: '지우야 안녕? 형이 맛있는 거 사줄까? 카톡 아이디 알려줘 ^^',
+    timestamp: '20분 전',
+    likes: 1,
+    profileImage: '/avatars/man.png',
+    riskLevel: 'DANGER',
+    riskCategory: 'GROOMING',
+    detectedKeywords: ['맛있는 거', '카톡 아이디'],
+    aiExplanation: '모르는 어른이 개인적으로 연락하려고 하거나 선물을 주겠다고 하는 것은 매우 위험해요. 이런 메시지를 받으면 절대 응하지 말고, 부모님께 꼭 알려주세요.',
+    hiddenContent: '[온라인 그루밍 의심 내용]',
+  },
+  {
+    id: 'cm_005',
+    author: '마크사랑해',
+    content: '궁금한게 있는데요, 저 조합법 어디서 찾을 수 있나요?',
+    timestamp: '15분 전',
+    likes: 8,
+    profileImage: '/avatars/user3.png',
+    riskLevel: 'SAFE',
+  },
+  {
+    id: 'cm_006',
+    author: '건축왕',
+    content: '6:30 이 부분 진짜 대박이다... 어떻게 저런 생각을 하지?',
+    timestamp: '12분 전',
+    likes: 156,
+    profileImage: '/avatars/user4.png',
+    riskLevel: 'SAFE',
+  },
+  {
+    id: 'cm_007',
+    author: '어둠의전사',
+    content: '너같은 애들은 죽어버려야해 ㅋㅋ 진짜 역겹다',
+    timestamp: '10분 전',
+    likes: 0,
+    profileImage: '/avatars/dark.png',
+    riskLevel: 'DANGER',
+    riskCategory: 'BULLYING',
+    detectedKeywords: ['죽어', '역겹다'],
+    aiExplanation: '누군가에게 "죽어"라고 말하는 것은 매우 심각한 언어폭력이에요. 이런 말은 상대방에게 큰 상처를 주고, 법적으로도 문제가 될 수 있어요.',
+    hiddenContent: '[심각한 폭력적 언어가 포함된 댓글입니다]',
+  },
+  {
+    id: 'cm_008',
+    author: '뉴비입니다',
+    content: '저 초보인데 이 게임 어려워요 ㅠㅠ 팁 좀 알려주세요!',
+    timestamp: '8분 전',
+    likes: 23,
+    profileImage: '/avatars/newbie.png',
+    riskLevel: 'SAFE',
+  },
+  {
+    id: 'cm_009',
+    author: '무료다이아나눔',
+    content: '⭐ 무료 다이아 1000개 이벤트 ⭐ 지금 바로 다이아받기.com 접속! 로그인만 하면 바로 지급!',
+    timestamp: '5분 전',
+    likes: 2,
+    profileImage: '/avatars/spam.png',
+    riskLevel: 'DANGER',
+    riskCategory: 'SPAM',
+    detectedKeywords: ['무료', '다이아', '로그인', '.com'],
+    aiExplanation: '무료로 게임 아이템을 준다며 특정 사이트에 로그인하라고 하는 것은 개인정보를 훔치려는 사기예요. 이런 댓글은 무시하고, 공식 사이트가 아닌 곳에서는 절대 로그인하면 안 돼요.',
+    hiddenContent: '[사기 사이트 링크가 포함된 스팸 댓글입니다]',
+  },
+  {
+    id: 'cm_010',
+    author: '마크천재',
+    content: '와 이 건축물 레고로 만들어보고 싶다! 설계도 공유해주실 수 있나요?',
+    timestamp: '3분 전',
+    likes: 67,
+    profileImage: '/avatars/creative.png',
+    riskLevel: 'SAFE',
+  },
+  {
+    id: 'cm_011',
+    author: '우울한하루',
+    content: '요즘 너무 힘들어... 살기 싫다 진짜',
+    timestamp: '2분 전',
+    likes: 5,
+    profileImage: '/avatars/sad.png',
+    riskLevel: 'DANGER',
+    riskCategory: 'SELF_HARM',
+    detectedKeywords: ['살기 싫다', '힘들어'],
+    aiExplanation: '혹시 마음이 많이 힘드신가요? 이런 생각이 들 때는 혼자 있지 말고 꼭 어른에게 이야기해주세요. 청소년전화 1388이나 자살예방상담전화 1393으로 전화하면 도움을 받을 수 있어요.',
+    hiddenContent: '[도움이 필요해 보이는 내용입니다]',
+  },
+  {
+    id: 'cm_012',
+    author: '영상제작자',
+    content: '영상 퀄리티가 진짜 좋네요! 어떤 프로그램으로 편집하셨어요?',
+    timestamp: '1분 전',
+    likes: 34,
+    profileImage: '/avatars/creator.png',
+    riskLevel: 'SAFE',
+  },
+];
+
+// 영상 정보 목업 데이터
+export const MOCK_VIDEO = {
+  id: 'vid_001',
+  title: '🏰 마인크래프트 중세 성 건축 강좌 | 초보자도 쉽게 따라하는 건축 팁!',
+  channel: '건축마스터 지우',
+  channelImage: '/avatars/channel.png',
+  subscribers: '12.4만',
+  views: '324,521',
+  uploadDate: '2025년 12월 1일',
+  likes: '1.2만',
+  description: `안녕하세요! 건축마스터 지우입니다.
+오늘은 마인크래프트에서 멋진 중세 성을 짓는 방법을 알려드릴게요!
+
+📌 목차
+00:00 인트로
+01:30 기초 설계
+05:00 성벽 쌓기
+10:00 탑 만들기
+15:00 디테일 추가
+20:00 완성!
+
+❤️ 구독과 좋아요 부탁드려요!`,
+};
