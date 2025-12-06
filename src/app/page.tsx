@@ -159,15 +159,63 @@ export default function HomePage() {
 
                   {/* 시뮬레이션 미리보기 */}
                   <div className="space-y-4">
-                    <div className="bg-gray-100 rounded-xl aspect-video flex items-center justify-center">
-                      <Play className="w-16 h-16 text-gray-400" />
+                    {/* 마인크래프트 스타일 중세 성 일러스트 */}
+                    <div className="relative bg-gradient-to-b from-sky-400 via-sky-300 to-sky-200 rounded-xl aspect-video overflow-hidden">
+                      {/* 구름 */}
+                      <div className="absolute top-3 left-6 w-12 h-5 bg-white rounded-full opacity-90" />
+                      <div className="absolute top-2 left-10 w-8 h-4 bg-white rounded-full opacity-90" />
+                      <div className="absolute top-4 right-8 w-10 h-4 bg-white rounded-full opacity-80" />
+
+                      {/* 태양 */}
+                      <div className="absolute top-4 right-4 w-8 h-8 bg-yellow-300 rounded-sm border-2 border-yellow-400" />
+
+                      {/* 마인크래프트 성 */}
+                      <div className="absolute bottom-[18%] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                        {/* 탑 */}
+                        <div className="flex gap-8">
+                          <div className="flex flex-col items-center">
+                            <div className="w-2 h-3 bg-gray-800" />
+                            <div className="w-6 h-8 bg-stone-400 border border-stone-500" />
+                          </div>
+                          <div className="flex flex-col items-center">
+                            <div className="w-2 h-3 bg-gray-800" />
+                            <div className="w-6 h-8 bg-stone-400 border border-stone-500" />
+                          </div>
+                        </div>
+                        {/* 성벽 */}
+                        <div className="flex items-end">
+                          <div className="w-20 h-10 bg-stone-400 border border-stone-500 flex items-end justify-center">
+                            <div className="w-5 h-6 bg-amber-800 border border-amber-900" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 나무 */}
+                      <div className="absolute bottom-[15%] left-4 flex flex-col items-center">
+                        <div className="w-6 h-6 bg-green-600 rounded-sm" />
+                        <div className="w-2 h-3 bg-amber-700" />
+                      </div>
+                      <div className="absolute bottom-[15%] right-6 flex flex-col items-center">
+                        <div className="w-5 h-5 bg-green-700 rounded-sm" />
+                        <div className="w-2 h-3 bg-amber-800" />
+                      </div>
+
+                      {/* 잔디 블록 바닥 */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-green-500 border-t-4 border-green-400" />
+
+                      {/* 재생 버튼 오버레이 */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-14 h-14 bg-black/30 rounded-full flex items-center justify-center backdrop-blur-sm">
+                          <Play className="w-8 h-8 text-white fill-white" />
+                        </div>
+                      </div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-gray-200 rounded-full" />
+                      <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center text-white text-xs font-bold">MC</div>
                       <div className="flex-1">
-                        <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
-                        <div className="h-3 bg-gray-100 rounded w-1/2" />
+                        <div className="text-sm font-medium text-gray-800">🏰 마인크래프트 중세 성 만들기 튜토리얼</div>
+                        <div className="text-xs text-gray-500">마크왕 • 조회수 12만회</div>
                       </div>
                     </div>
 
