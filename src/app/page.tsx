@@ -86,9 +86,28 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <Badge className="mb-4 bg-blue-100 text-blue-700 px-4 py-1">
-                  2025 AI와 함께하는 365일 아동이 행복한 세상 공모전
-                </Badge>
+                {/* 공모전 뱃지 */}
+                <motion.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="inline-flex items-center gap-3 mb-6 px-5 py-3 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl shadow-lg"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl shadow-md">
+                    <span className="text-2xl">🏆</span>
+                  </div>
+                  <div className="text-left">
+                    <p className="text-xs font-medium text-amber-600 uppercase tracking-wide">2025 공모전 출품작</p>
+                    <p className="text-sm font-bold text-gray-800">AI와 함께하는 365일 아동이 행복한 세상</p>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="text-2xl"
+                  >
+                    ✨
+                  </motion.div>
+                </motion.div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                   아이의 디지털 세상을<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
