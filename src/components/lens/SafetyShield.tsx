@@ -118,14 +118,15 @@ export default function SafetyShield({
                     </Badge>
                   )}
 
-                  <div className="flex gap-2 justify-center flex-wrap">
+                  <div className="flex gap-2 justify-center flex-wrap" role="group" aria-label="콘텐츠 액션">
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={handleExplainClick}
                       className="text-xs"
+                      aria-label="이 콘텐츠가 왜 차단되었는지 설명 보기"
                     >
-                      <HelpCircle className="w-3.5 h-3.5 mr-1" />
+                      <HelpCircle className="w-3.5 h-3.5 mr-1" aria-hidden="true" />
                       왜 나쁜가요?
                     </Button>
                     <Button
@@ -133,8 +134,9 @@ export default function SafetyShield({
                       variant="ghost"
                       onClick={handleRevealClick}
                       className="text-xs text-gray-500"
+                      aria-label="차단된 원본 콘텐츠 보기"
                     >
-                      <Eye className="w-3.5 h-3.5 mr-1" />
+                      <Eye className="w-3.5 h-3.5 mr-1" aria-hidden="true" />
                       원본 보기
                     </Button>
                   </div>
@@ -156,8 +158,9 @@ export default function SafetyShield({
                 variant="ghost"
                 onClick={() => setIsBlurred(true)}
                 className="absolute top-1 right-1 text-xs text-orange-600 hover:text-orange-700"
+                aria-label="콘텐츠 다시 가리기"
               >
-                <EyeOff className="w-3.5 h-3.5 mr-1" />
+                <EyeOff className="w-3.5 h-3.5 mr-1" aria-hidden="true" />
                 다시 가리기
               </Button>
             </motion.div>

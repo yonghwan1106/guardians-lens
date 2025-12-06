@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, ReactNode } from 'react';
+import { useState, ReactNode, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Lightbulb } from 'lucide-react';
 import { useLensStore } from '@/lib/store';
@@ -126,42 +126,46 @@ interface TextWithExplanationsProps {
 }
 
 export function TextWithExplanations({ text, difficultTerms }: TextWithExplanationsProps) {
-  // HTML 태그 제거하고 순수 텍스트만 처리
-  const processedText = text.replace(/<[^>]*>/g, '');
+  // useMemo로 텍스트 처리 결과 캐싱
+  const result = useMemo(() => {
+    // HTML 태그 제거하고 순수 텍스트만 처리
+    const processedText = text.replace(/<[^>]*>/g, '');
+    const resultArray: ReactNode[] = [];
+    let lastIndex = 0;
 
-  const result: ReactNode[] = [];
-  let lastIndex = 0;
+    // 단어 위치를 찾아서 정렬
+    const termPositions = difficultTerms.map(term => ({
+      ...term,
+      position: processedText.indexOf(term.term),
+    })).filter(t => t.position !== -1).sort((a, b) => a.position - b.position);
 
-  // 단어 위치를 찾아서 정렬
-  const termPositions = difficultTerms.map(term => ({
-    ...term,
-    position: processedText.indexOf(term.term),
-  })).filter(t => t.position !== -1).sort((a, b) => a.position - b.position);
+    termPositions.forEach((term, idx) => {
+      // 이전 텍스트 추가
+      if (term.position > lastIndex) {
+        resultArray.push(processedText.slice(lastIndex, term.position));
+      }
 
-  termPositions.forEach((term, idx) => {
-    // 이전 텍스트 추가
-    if (term.position > lastIndex) {
-      result.push(processedText.slice(lastIndex, term.position));
+      // WordExplainer 컴포넌트 추가
+      resultArray.push(
+        <WordExplainer
+          key={`term-${idx}`}
+          term={term.term}
+          definition={term.easyDefinition}
+          analogy={term.analogy}
+          emoji={term.relatedEmoji}
+        />
+      );
+
+      lastIndex = term.position + term.term.length;
+    });
+
+    // 남은 텍스트 추가
+    if (lastIndex < processedText.length) {
+      resultArray.push(processedText.slice(lastIndex));
     }
 
-    // WordExplainer 컴포넌트 추가
-    result.push(
-      <WordExplainer
-        key={`term-${idx}`}
-        term={term.term}
-        definition={term.easyDefinition}
-        analogy={term.analogy}
-        emoji={term.relatedEmoji}
-      />
-    );
-
-    lastIndex = term.position + term.term.length;
-  });
-
-  // 남은 텍스트 추가
-  if (lastIndex < processedText.length) {
-    result.push(processedText.slice(lastIndex));
-  }
+    return resultArray;
+  }, [text, difficultTerms]);
 
   return <>{result}</>;
 }

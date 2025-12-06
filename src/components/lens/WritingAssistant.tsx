@@ -106,7 +106,10 @@ export default function WritingAssistant({
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           rows={2}
-          className="w-full px-4 py-3 pr-24 bg-transparent resize-none focus:outline-none text-sm"
+          className="w-full px-4 py-3 pr-24 bg-transparent resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-inset text-sm rounded-xl"
+          aria-label={placeholder}
+          aria-describedby={warning.show ? 'writing-warning' : undefined}
+          aria-invalid={warning.isSevere}
         />
 
         {/* 전송 버튼 */}
@@ -136,8 +139,9 @@ export default function WritingAssistant({
                 : 'bg-blue-500 hover:bg-blue-600'
               }
             `}
+            aria-label="메시지 전송"
           >
-            <Send className="w-4 h-4" />
+            <Send className="w-4 h-4" aria-hidden="true" />
           </Button>
         </div>
       </div>
@@ -152,6 +156,9 @@ export default function WritingAssistant({
             className="mt-2"
           >
             <div
+              id="writing-warning"
+              role="alert"
+              aria-live="polite"
               className={`
                 rounded-lg p-3 flex items-start gap-3
                 ${warning.isSevere ? 'bg-red-100 border border-red-200' : 'bg-orange-100 border border-orange-200'}
